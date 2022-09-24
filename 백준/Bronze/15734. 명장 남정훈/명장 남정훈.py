@@ -2,14 +2,9 @@ import sys
 input = sys.stdin.readline
 
 L, R, A = map(int, input().split())
-if L <= R:
-    if R - L <= A:
-        ans = (R + (A - (R - L)) // 2) * 2
-    else:
-        ans = (L + A) * 2
+if L + A < R:
+    print((L + A) * 2)
+elif R + A < L:
+    print((R + A) * 2)
 else:
-    if L - R <= A:
-        ans = (L + (A - (L - R)) // 2) * 2
-    else:
-        ans = (R + A) * 2
-print(ans)
+    print((L + R + A) // 2 * 2)
