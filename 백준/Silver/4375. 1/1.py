@@ -2,13 +2,11 @@ import sys
 input = lambda: sys.stdin.readline().rstrip()
 
 def solve(n):
-    a = "1"
-    res = 1
-    while True:
-        if int(a*res) % n == 0:
-            print(res)
-            return
+    a = res = 1
+    while a % n != 0:
+        a = (a*10) % n + 1 % n
         res += 1
+    print(res)
 
 while True:
     try:
