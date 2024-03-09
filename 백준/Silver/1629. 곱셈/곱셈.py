@@ -8,4 +8,4 @@ while b > 0:
     a *= a
     a %= c
     b >>= 1
-print(res % c)
+print(res)
