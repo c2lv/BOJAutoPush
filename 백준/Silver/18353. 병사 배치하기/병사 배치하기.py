@@ -3,12 +3,20 @@ input = lambda: sys.stdin.readline().rstrip()
 
 n = int(input())
 power = list(map(int, input().split()))
-dp = [1]*n
-desc_max = 1
+desc = []
+len_desc = 0
 for i in range(n):
-    for j in range(i):
-        if power[j] > power[i]:
-            dp[i] = max(dp[j] + 1, dp[i])
-    if dp[i] > desc_max:
-        desc_max = dp[i]
-print(n - desc_max)
+    if not desc or desc[-1] > power[i]:
+        desc.append(power[i])
+        len_desc += 1
+    else:
+        left = 0
+        right = len_desc
+        while left < right:
+            mid = (right+left) // 2
+            if desc[mid] > power[i]:
+                left = mid + 1
+            else:
+                right = mid
+        desc[right] = power[i]
+print(n - len(desc))
