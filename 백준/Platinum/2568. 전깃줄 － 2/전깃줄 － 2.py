@@ -22,7 +22,7 @@ for i in range(n):
             if asc[mid][0] < line[i][0] and asc[mid][1] < line[i][1]:
                 left = mid + 1
             else:
-                right -= 1
+                right = mid
         asc[left] = line[i]
         index[i] = left
 print(n - max_len)
