@@ -2,20 +2,17 @@ import sys
 input = lambda: sys.stdin.readline().rstrip()
 
 n = int(input())
-max_lis = 0
-max_lds = 0
-lis = [1]*n
-lds = [1]*n
-answer = 0
-car = []
-for i in range(n):
-    car.append(int(input()))
+dp = []
+for _ in range(n):
+    car = int(input())
+    dp.append([car, 1, 1])
+len_max = 0
 for i in range(n-1, -1, -1):
-    for j in range(n-1, i, -1):
-        if car[j] > car[i]:
-            lds[i] = max(lds[j] + 1, lds[i])
-        if car[j] < car[i]:
-            lis[i] = max(lis[j] + 1, lis[i])
-    if lis[i] + lds[i] - 1 > answer:
-        answer = lis[i] + lds[i] - 1
-print(answer)
+    for j in range(i+1, n):
+        if dp[j][0] > dp[i][0]:
+            dp[i][1] = max(dp[j][1] + 1, dp[i][1])
+        if dp[j][0] < dp[i][0]:
+            dp[i][2] = max(dp[j][2] + 1, dp[i][2])
+    if dp[i][1]+dp[i][2]-1 > len_max:
+        len_max = dp[i][1]+dp[i][2]-1
+print(len_max)
