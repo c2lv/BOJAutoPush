@@ -1,12 +1,11 @@
-<html>
-<head><title>504 Gateway Time-out</title></head>
-<body>
-<center><h1>504 Gateway Time-out</h1></center>
-</body>
-</html>
-<!-- a padding to disable MSIE and Chrome friendly error page -->
-<!-- a padding to disable MSIE and Chrome friendly error page -->
-<!-- a padding to disable MSIE and Chrome friendly error page -->
-<!-- a padding to disable MSIE and Chrome friendly error page -->
-<!-- a padding to disable MSIE and Chrome friendly error page -->
-<!-- a padding to disable MSIE and Chrome friendly error page -->
+n = int(input())
+N_MAX = 10000
+before = N_MAX
+answer = 0
+for _ in range(n):
+    p = int(input())
+    if p > before:
+        answer += p - before
+    elif p < before:
+        before = p
+print(answer)
