@@ -18,12 +18,12 @@ def find(x): # root 찾기
         parent[x] = find(parent[x])
     return parent[x]
 
-def union(a, b): #  두 노드 부모 같으면 False(cycle 발생), 다르면 연결하고 True
+def union(a, b): #  두 노드 부모 같으면 False, 다르면 연결하고 True
     ra = find(a)
     rb = find(b)
     if ra == rb:
         return False
-    # 가중치 높은 쪽을 부모로 설정, 같으면 a
+    # 더 높은 쪽을 부모로 설정, 같으면 a
     if rank[ra] < rank[rb]:
         parent[ra] = rb
     elif rank[ra] > rank[rb]:
