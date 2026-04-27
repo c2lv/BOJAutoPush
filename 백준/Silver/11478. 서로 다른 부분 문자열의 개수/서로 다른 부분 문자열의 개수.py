@@ -1,12 +1,6 @@
-<html>
-<head><title>504 Gateway Time-out</title></head>
-<body>
-<center><h1>504 Gateway Time-out</h1></center>
-</body>
-</html>
-<!-- a padding to disable MSIE and Chrome friendly error page -->
-<!-- a padding to disable MSIE and Chrome friendly error page -->
-<!-- a padding to disable MSIE and Chrome friendly error page -->
-<!-- a padding to disable MSIE and Chrome friendly error page -->
-<!-- a padding to disable MSIE and Chrome friendly error page -->
-<!-- a padding to disable MSIE and Chrome friendly error page -->
+s = input()
+piece = set()
+for i in range(len(s)):
+    for j in range(len(s)-i):
+        piece.add(s[j:j+i+1])
+print(len(piece))
