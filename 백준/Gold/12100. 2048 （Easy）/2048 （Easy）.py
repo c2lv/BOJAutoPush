@@ -66,9 +66,6 @@ def dfs(depth, cur_board):
     global block_max
 
     if depth == 0:
-        for i in range(n):
-            for j in range(n):
-                block_max = max(block_max, cur_board[i][j])
         return
 
     for move in (left, right, up, down):
